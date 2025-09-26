@@ -8,6 +8,7 @@ const FunctionalComponentWithState = () => {
        setcount(count + 1);
    }
 
+
     return (
         <>
         <h1 className="text-center my-12">Count is <strong>{count}</strong></h1>
