@@ -11,7 +11,8 @@
 import Layout from "./components/Layout.tsx";
 // import ArrowFunctionalComponentWithPropsType from "./components/ArrowFunctionalComponentWithPropsType.tsx";
 // import FunctionalComponentWithState from "./components/FunctionalComponentWithState.tsx";
-import Counter from "./components/Counter.tsx";
+// import Counter from "./components/Counter.tsx";
+import NameChanger from "./components/NameChanger.tsx";
 
 function App() {
 
@@ -29,11 +30,12 @@ function App() {
 {/*            <ArrowFunctionalComponentWithPropsType title="Is an Arrow Functional Component with 2 props" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, sunt.*/}
 {/*"/>*/}
 {/*        </Card>*/}
-       <Layout>
+        <Layout>
            {/*<ArrowFunctionalComponentWithPropsType title="Title" description="Description"/>*/}
            {/*<FunctionalComponentWithState />*/}
-           <Counter />
-       </Layout>
+           {/*<Counter />*/}
+           <NameChanger/>
+        </Layout>
 
 
     </>
