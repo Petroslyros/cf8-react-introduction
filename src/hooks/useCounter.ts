@@ -9,7 +9,6 @@ type CounterState = {
 export const useCounter = () => {
 
 
-
     const [state, setState] = useState<CounterState>({
         count: 0,
         lastAction: "",
