@@ -5,9 +5,10 @@
 // import ArrowFunctionalComponentWithProps from "./components/ArrowFunctionalComponentWithProps.tsx";
 // import ArrowFunctionalComponentWithPropsType from "./components/ArrowFunctionalComponentWithPropsType.tsx";
 // import Card from "./components/Card.tsx";
-import Layout from "./components/Layout.tsx";
+// import Layout from "../../cf8-react-todo-app/src/layout/Layout.tsx";
 // import PreviousValue from "./components/PreviousValue.tsx";
-import CounterWithRef from "./components/CounterWithRef.tsx";
+// import CounterWithRef from "./components/CounterWithRef.tsx";
+// import {useEffect} from "react";
 // import FocusInput from "./components/FocusInput.tsx";
 // import WindowSize from "./components/WindowSize.tsx";
 // import Timer from "./components/Timer.tsx";
@@ -21,6 +22,12 @@ import CounterWithRef from "./components/CounterWithRef.tsx";
 // import NameChanger from "./components/NameChanger.tsx";
 // import CounterWithMoreStates from "./components/CounterWithMoreStates.tsx";
 // import CounterAdvanced from "./components/CounterAdvanced.tsx";
+import {BrowserRouter, Route, Routes} from "react-router";
+import NameChanger from "./components/NameChanger.tsx";
+import HomePage from "./pages/HomePage.tsx";
+import Timer from "./components/Timer.tsx";
+
+
 
 function App() {
 
@@ -36,6 +43,14 @@ function App() {
     //     }, 1000)
     //     return () => clearInterval(id);
     // }, []);
+    // useEffect(() => {
+    //     history.pushState({page: 1}, "", "/page")
+    //     history.replaceState({page: 1}, "", "/page1");
+    //
+    //     window.onpopstate = (e) => {
+    //         console.log(e.state);
+    //     }
+    // }, []);
 
   return (
     <>
@@ -50,7 +65,7 @@ function App() {
 {/*            <ArrowFunctionalComponentWithPropsType title="Is an Arrow Functional Component with 2 props" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, sunt.*/}
 {/*"/>*/}
 {/*        </Card>*/}
-        <Layout>
+{/*        <Layout>*/}
            {/*<ArrowFunctionalComponentWithPropsType title="Title" description="Description"/>*/}
            {/*<FunctionalComponentWithState />*/}
            {/*<Counter />*/}
@@ -63,10 +78,19 @@ function App() {
            {/* <WindowSize/>*/}
            {/* <FocusInput/>*/}
            {/* <PreviousValue/>*/}
-            <CounterWithRef/>
-        </Layout>
+           {/* <CounterWithRef/>*/}
+        {/*</Layout>*/}
+
+    <BrowserRouter >
+       <Routes>
+           <Route index element={<HomePage/>} />
+         <Route path="name-changer" element={<NameChanger/>}/>
+           <Route path="time" element={<Timer/>} />
+
+       </Routes>
 
 
+    </BrowserRouter>
 
     </>
   )
