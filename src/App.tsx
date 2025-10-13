@@ -26,6 +26,9 @@ import {BrowserRouter, Route, Routes} from "react-router";
 import NameChanger from "./components/NameChanger.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import Timer from "./components/Timer.tsx";
+import RouterLayout from "./components/RouterLayout.tsx";
+import path from "path";
+import UserPage from "./components/UserPage.tsx";
 
 
 
@@ -84,12 +87,29 @@ function App() {
     <BrowserRouter >
        <Routes>
            <Route index element={<HomePage/>} />
-         <Route path="name-changer" element={<NameChanger/>}/>
-           <Route path="time" element={<Timer/>} />
+         {/*<Route path="name-changer" element={<NameChanger/>}/>*/}
+         {/*  <Route path="time" element={<Timer/>} />*/}
+        <Route path="examples">
+            <Route path="name-changer" element={<NameChanger/>}/>
+            <Route path="timer" element={<Timer/>}/>
+
+        </Route>
+
+           {/*<Route path="users/:userId" element={UserPage/>}/>*/}
+
+           {/*<Route path="files/*" element={<FilePage />} />*/}
+
+           <Route element={<RouterLayout/>}>
+            <Route path="users">
+            <Route path=":userId">
+                <Route index element={<UserPage/>}/>
+                {/*<Route path="accounts" element={<UserAccountsPage/>}/>*/}
+            </Route>
+             </Route>
+
+        </Route>
 
        </Routes>
-
-
     </BrowserRouter>
 
     </>
