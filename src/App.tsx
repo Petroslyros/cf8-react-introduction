@@ -27,8 +27,10 @@ import NameChanger from "./components/NameChanger.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import Timer from "./components/Timer.tsx";
 import RouterLayout from "./components/RouterLayout.tsx";
-import path from "path";
+// import path from "path";
 import UserPage from "./components/UserPage.tsx";
+import ControlledInput from "./components/ControlledInput.tsx";
+import UncontrolledInput from "./components/UncontrolledInput.tsx";
 
 
 
@@ -92,6 +94,8 @@ function App() {
         <Route path="examples">
             <Route path="name-changer" element={<NameChanger/>}/>
             <Route path="timer" element={<Timer/>}/>
+            <Route path="controlled-input" element={<ControlledInput/>}/>
+            <Route path="uncontrolled-input" element={<UncontrolledInput/>}/>
 
         </Route>
 
