@@ -7,7 +7,8 @@ const Homepage = () => {
         {path: "/name-changer", label: "Name Changer example"},
         {path: "/examples/timer", label: "Timer Example"},
         {path: "/examples/controlled-input", label: "Controlled Input Example"},
-        {path: "/examples/uncontrolled-input", label: "Uncontrolled Input Example"}
+        {path: "/examples/uncontrolled-input", label: "Uncontrolled Input Example"},
+        {path: "/examples/multifield-form", label: "Multifield Form Example"}
     ];
 
     useEffect(() => {
