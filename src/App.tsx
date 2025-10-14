@@ -32,6 +32,7 @@ import UserPage from "./components/UserPage.tsx";
 import ControlledInput from "./components/ControlledInput.tsx";
 import UncontrolledInput from "./components/UncontrolledInput.tsx";
 import MultifieldForm from "./components/MultifieldForm.tsx";
+import MultifieldFormWithValidation from "./components/MultifieldFormWithValidation.tsx";
 
 
 
@@ -98,6 +99,7 @@ function App() {
             <Route path="controlled-input" element={<ControlledInput/>}/>
             <Route path="uncontrolled-input" element={<UncontrolledInput/>}/>
             <Route path="multifield-form" element={<MultifieldForm/>}/>
+            <Route path="multifield-form" element={<MultifieldFormWithValidation/>}/>
 
         </Route>
 
