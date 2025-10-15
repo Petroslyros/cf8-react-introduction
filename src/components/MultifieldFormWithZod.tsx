@@ -23,25 +23,33 @@ const initialValues: FormValues = {
     message: "",
 };
 
-const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
+
 
 const MultifieldFormWithZod = () => {
     const [ values, setValues] = useState(initialValues)
     const [ submittedData, setSubmittedData] = useState<FormValues | null>(null);
     const [ errors, setErrors ] = useState<FormErrors | null>(null);
 
-    const validateForm = (values: FormValues) => {
-        const errors: FormErrors = {};
-        if (!values.name.trim()) {
-            errors.name = "Name is required";
+    const validateForm = (): boolean  => {
+
+    const result = formSchema.safeParse(values);
+        //{success: true, data: validatedData}
+        // {success: false, error: ZodError}
+
+        if(!result.success) {
+            const newErrors: FormErrors = {};
+            result.error.issues.forEach((issue) => {
+                const fieldName = issue.path[0] as keyof FormValues;
+
+                newErrors[fieldName] = issue.message;
+            });
+            setErrors(newErrors);
+            return false;
         }
-        if (!values.email.trim() || !emailRegex.test(values.email)) {
-            errors.email = "Email is required";
-        }
-        if (!values.message.trim() || values.message.length < 5) {
-            errors.message = "Message is required";
-        }
-        return errors;
+
+        setErrors({})
+        return  true
+
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -62,18 +70,12 @@ const MultifieldFormWithZod = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        const validationErrors = validateForm(values);
-
-        if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors);
-            setSubmittedData(null);
-            return;
+        const isValid = validateForm();
+        if(isValid) {
+            setSubmittedData(values);
+            setValues(initialValues);
+            setErrors({});
         }
-
-        setSubmittedData(values);
-        setValues(initialValues);
-        setErrors({});
     }
 
     const handleClear = () => {
