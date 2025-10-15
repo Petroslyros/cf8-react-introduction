@@ -1,3 +1,4 @@
+
 const Header = () => {
     return (
         <>
@@ -7,9 +8,9 @@ const Header = () => {
                          src="https://codingfactory.aueb.gr/sites/all/themes/cf_theme/logo.png"
                          alt="CF Logo"
                     />
-                    <div className="flex gap-4 text-white font-medium">
-                        Todo App
-                    </div>
+                    <nav className="flex gap-4 text-white font-medium">
+                        <a href="#">Home</a>
+                    </nav>
                 </div>
             </header>
         </>
